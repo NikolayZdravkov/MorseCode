@@ -1,4 +1,6 @@
-﻿namespace MorseCode
+﻿using System.IO;
+
+namespace MorseCode
 {
     public class MorseCodeTranslator
     {
@@ -61,6 +63,12 @@
             {
                 string MorseResult = MorseCodeTranslator.TextToMorse(userInput);
                 Console.WriteLine("Morse Code: " + MorseResult);
+
+                string filepath = "morse_output.txt";
+
+                File.WriteAllText(filepath, MorseResult);
+
+                Console.WriteLine($"Morse Code exported to {filepath}");
             }
             catch (CharacterNotInDictionaryException ex)
             {
